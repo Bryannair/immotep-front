@@ -1,0 +1,7 @@
+.arrow-more{
+  transition: .3s ease-in-out;
+}
+
+.arrow-more:hover{
+  margin-left: 5px;
+}

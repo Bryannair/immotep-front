@@ -1,0 +1,7 @@
+<app-header></app-header>
+<section>
+  <router-outlet></router-outlet>
+  <button *ngIf="scrolled == 0" (click)="onActivate()" class="arrow mt-5 ml-2 mb-4 btn"><i class="fa fa-arrow-up"></i>
+  </button>
+</section>
+<app-footer></app-footer>
