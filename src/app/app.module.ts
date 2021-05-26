@@ -16,6 +16,8 @@ import { PropertyComponent } from './property/property.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BodyClassDirective } from './directives/body-class.directive';
 import { HouseComponent } from './house/house.component';
+import {FormsModule} from '@angular/forms';
+import { ApartmentComponent } from './apartment/apartment.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { HouseComponent } from './house/house.component';
     SinglePropertyComponent,
     PropertyComponent,
     BodyClassDirective,
-    HouseComponent
+    HouseComponent,
+    ApartmentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })

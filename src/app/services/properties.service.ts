@@ -19,6 +19,7 @@ export class PropertiesService extends BaseApi {
     return this.http.get<Property[]>(this.SERVER_URL + 'properties', {headers: this.httpHeaders, observe: 'response'});
   }
 
+  // @ts-ignore
   find(id: number): Observable<HttpResponse<Property>> {
     return this.http.get<Property>(this.SERVER_URL + 'properties/' + id, {headers: this.httpHeaders, observe: 'response'});
   }

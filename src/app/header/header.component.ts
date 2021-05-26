@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onWindowScroll($event) {
     const numb = window.scrollY;
-    if (numb >= 100){
+    if (numb >= 500){
       this.scrolled = 0;
     }
     else {

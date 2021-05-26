@@ -9,6 +9,7 @@ import {PropertyComponent} from './property/property.component';
 import {SingleAgentComponent} from './single-agent/single-agent.component';
 import {SinglePropertyComponent} from './single-property/single-property.component';
 import {HouseComponent} from './house/house.component';
+import {ApartmentComponent} from './apartment/apartment.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'single-agent/:id', component: SingleAgentComponent },
   {path: 'property', component: PropertyComponent },
   {path: 'house', component: HouseComponent },
+  {path: 'apartment', component: ApartmentComponent },
   {path: 'single-property/:id', component: SinglePropertyComponent },
   {path: 'contact', component: ContactComponent },
 ];

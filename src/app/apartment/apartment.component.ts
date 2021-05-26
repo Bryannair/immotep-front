@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {PropertiesService} from '../services/properties.service';
 import {ActivatedRoute} from '@angular/router';
-import {PropertyStatus, PropertyType} from '../interfaces/property';
 import {map} from 'rxjs/operators';
+import {PropertyStatus, PropertyType} from '../interfaces/property';
 
 @Component({
-  selector: 'app-house',
-  templateUrl: './house.component.html',
-  styleUrls: ['./house.component.css']
+  selector: 'app-apartment',
+  templateUrl: './apartment.component.html',
+  styleUrls: ['./apartment.component.css']
 })
-export class HouseComponent implements OnInit {
+export class ApartmentComponent implements OnInit {
   properties;
   propertiesFilter;
   selectedFilter;
@@ -19,8 +19,7 @@ export class HouseComponent implements OnInit {
     this.activatedRoute = activatedRoute;
   }
 
-  // tslint:disable-next-line:typedef
-  ngOnInit() {
+  ngOnInit(): void {
     this.propertiesService.findAll()
       .pipe(
         map(res => res.body
@@ -30,7 +29,7 @@ export class HouseComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSucces(res) {
-    this.properties = res.filter(property => property.type === PropertyType.MAISON);
+    this.properties = res.filter(property => property.type === PropertyType.APPARTEMENT);
     this.propertiesFilter = [...this.properties];
     // [... this.blabla] copie la valeur mais ne partage pas la même valeurs actuelle
   }
@@ -44,7 +43,7 @@ export class HouseComponent implements OnInit {
     console.log(this.selectedFilter);
     switch (this.selectedFilter) {
       case '1' : {
-        this.propertiesFilter = this.properties.filter(property => property.price > 0 && property.price <= 100000);
+        this.propertiesFilter = this.properties.filter(property => property.price >= 0 && property.price <= 100000);
         console.log(this.propertiesFilter);
         break;
       }
@@ -71,4 +70,5 @@ export class HouseComponent implements OnInit {
       default:
     }
   }
+
 }

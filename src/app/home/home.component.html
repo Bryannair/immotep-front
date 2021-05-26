@@ -1,86 +1,33 @@
-<!-- ======= Intro Section ======= -->
-<!--<div class="intro intro-carousel">-->
-<!--  <div id="carousel" class="owl-carousel owl-theme">-->
-<!--    <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-1.jpg)">-->
-<!--      <div class="overlay overlay-a"></div>-->
-<!--      <div class="intro-content display-table">-->
-<!--        <div class="table-cell">-->
-<!--          <div class="container">-->
-<!--            <div class="row">-->
-<!--              <div class="col-lg-8">-->
-<!--                <div class="intro-body">-->
-<!--                  <p class="intro-title-top">Doral, Florida-->
-<!--                    <br> 78345-->
-<!--                  </p>-->
-<!--                  <h1 class="intro-title mb-4">-->
-<!--                    <span class="color-b">204 </span> Mount-->
-<!--                    <br> Olive Road Two-->
-<!--                  </h1>-->
-<!--                  <p class="intro-subtitle intro-price">-->
-<!--                    <a class="text-decoration-none" href="#"><span class="price-a">rent | $ 12.000</span></a>-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-2.jpg)">-->
-<!--      <div class="overlay overlay-a"></div>-->
-<!--      <div class="intro-content display-table">-->
-<!--        <div class="table-cell">-->
-<!--          <div class="container">-->
-<!--            <div class="row">-->
-<!--              <div class="col-lg-8">-->
-<!--                <div class="intro-body">-->
-<!--                  <p class="intro-title-top">Doral, Florida-->
-<!--                    <br> 78345-->
-<!--                  </p>-->
-<!--                  <h1 class="intro-title mb-4">-->
-<!--                    <span class="color-b">204 </span> Rino-->
-<!--                    <br> Venda Road Five-->
-<!--                  </h1>-->
-<!--                  <p class="intro-subtitle intro-price">-->
-<!--                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-3.jpg)">-->
-<!--      <div class="overlay overlay-a"></div>-->
-<!--      <div class="intro-content display-table">-->
-<!--        <div class="table-cell">-->
-<!--          <div class="container">-->
-<!--            <div class="row">-->
-<!--              <div class="col-lg-8">-->
-<!--                <div class="intro-body">-->
-<!--                  <p class="intro-title-top">Doral, Florida-->
-<!--                    <br> 78345-->
-<!--                  </p>-->
-<!--                  <h1 class="intro-title mb-4">-->
-<!--                    <span class="color-b">204 </span> Alira-->
-<!--                    <br> Roan Road One-->
-<!--                  </h1>-->
-<!--                  <p class="intro-subtitle intro-price ">-->
-<!--                    <a class="text-decoration-none" href="#"><span class="price-a ">rent | $ 12.000</span></a>-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>&lt;!&ndash; End Intro Section &ndash;&gt;-->
+======= Intro Section =======
+<section  >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container-fluid">
+            <div class="intro-body">
 
+              <p class="intro-title-top">Doral, Florida
+                <br> 78345
+              </p>
+              <h1 class="intro-title mb-4">
+                <span class="color-b">204 </span> Mount
+                <br> Olive Road Two
+              </h1>
+              <p class="intro-subtitle intro-price">
+                <a class="text-decoration-none" href="#"><span class="price-a">rent | $ 12.000</span></a>
+              </p>
+            </div>
+            <img src="assets/img/slide-3.jpg" class="img-fluid" alt="Responsive image">
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ======= Services Section ======= -->
-<section class="section-services section-t8">
+<section class="section-services section-t3">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -169,24 +116,10 @@
 </section><!-- End Services Section -->
 
 <!-- ======= Latest Properties Section ======= -->
-<section class="section-property section-t8">
+<section class="property-grid grid mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 d-flex justify-content-end ">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a pointer-event">Biens récent</h2>
-            </div>
-            <div class="title-link">
-              <a class="text-decoration-none arrow-hover fw-bolder" routerLink="{{ '/property' }}"><strong>Tous les biens </strong>
-                <i class="arrow-hover fa fa-arrow-right arrow-more"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" *ngFor="let property of properties">
+      <div class="col-md-4" *ngFor="let property of properties | slice:0:3; let i = index">
         <a [routerLink]="['/single-property', property.id]">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
@@ -243,13 +176,14 @@
             <h2 class="title-a">Les super agents</h2>
           </div>
           <div class="title-link">
-            <a class="text-decoration-none arrow-hover fw-bolder" routerLink="{{ '/agents' }}"><strong>Tous nos agents </strong>
+            <a class="text-decoration-none arrow-hover fw-bolder" routerLink="{{ '/agents' }}"><strong>Tous nos
+              agents </strong>
               <i class="arrow-hover fa fa-arrow-right arrow-more"></i>
             </a>
           </div>
         </div>
       </div>
-      <div class="col-md-4" *ngFor="let agent of agents, let i = index">
+      <div class="col-md-4" *ngFor="let agent of agents | slice:0:3; let i = index">
         <a [routerLink]="['/single-agent', agent.id]">
           <div class="card-box-d">
             <div class="card-img-d">
