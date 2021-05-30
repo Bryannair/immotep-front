@@ -1,19 +1,24 @@
-<nav class="navbar navbar-default navbar-trans navbar-expand-lg position-absolute w-100">
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg position-relative w-100">
   <div class="container">
-    <button class="navbar-toggler collapsed " type="button" data-toggle="collapse" data-target="#navbarDefault"
+    <button [ngClass]="{ 'collapsed': collapsed === false }"
+            (click)="collapsed =! this.collapsed"
+            class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
             aria-controls="navbarDefault" aria-label="Toggle navigation">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <a class="navbar-brand text-brand title-a" href="index.html">Immo<span class="color-b">Tep</span></a>
-    <div class="navbar-collapse collapse justify-content-center m-2" id="navbarDefault">
+    <div [ngClass]="{ show: collapsed, 'navbar-collapse': true }"
+         class="navbar-collapse collapse justify-content-center m-2" id="navbarDefault">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="{{ '/home' }}">Accueil</a>
+          <a (click)="collapsed = false" class="nav-link" routerLinkActive="active"
+             routerLink="{{ '/home' }}">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="{{ '/about' }}">A propos</a>
+          <a (click)="collapsed = false" class="nav-link" routerLinkActive="active" routerLink="{{ '/about' }}">A
+            propos</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button"
@@ -21,16 +26,17 @@
             Nos biens
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="{{ '/property' }}">Tous les bien</a>
-            <a class="dropdown-item" routerLink="{{ '/house' }}">Maison</a>
-            <a class="dropdown-item" routerLink="{{ '/apartment' }}">Appartement</a>
+            <a (click)="collapsed = false" class="dropdown-item" routerLink="{{ '/property' }}">Tous les bien</a>
+            <a (click)="collapsed = false" class="dropdown-item" routerLink="{{ '/house' }}">Maison</a>
+            <a (click)="collapsed = false" class="dropdown-item" routerLink="{{ '/apartment' }}">Appartement</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="{{ '/agents' }}">Notre équipe</a>
+          <a (click)="collapsed = false" class="nav-link" routerLinkActive="active" routerLink="{{ '/agents' }}">Notre
+            équipe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="{{ '/contact' }}">Contact</a>
+          <a (click)="collapsed = false" class="nav-link" routerLinkActive="active" routerLink="{{ '/contact' }}">Contact</a>
         </li>
       </ul>
     </div>

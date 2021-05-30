@@ -12,6 +12,7 @@ import {mergeMap} from 'rxjs/operators';
 export class PropertyComponent implements OnInit {
   properties;
   activatedRoute;
+  p = 1;
 
   constructor(private propertiesService: PropertiesService, activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;

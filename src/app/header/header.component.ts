@@ -7,18 +7,7 @@ import {Component, HostBinding, HostListener, OnInit} from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-  scrolled;
-  @HostListener('window:scroll', ['$event'])
-  // tslint:disable-next-line:typedef
-  onWindowScroll($event) {
-    const numb = window.scrollY;
-    if (numb >= 500){
-      this.scrolled = 0;
-    }
-    else {
-      this.scrolled = 1;
-    }
-  }
+  collapsed = false;
   constructor() { }
 
   ngOnInit(): void {

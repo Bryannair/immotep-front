@@ -18,6 +18,7 @@ import { BodyClassDirective } from './directives/body-class.directive';
 import { HouseComponent } from './house/house.component';
 import {FormsModule} from '@angular/forms';
 import { ApartmentComponent } from './apartment/apartment.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ApartmentComponent } from './apartment/apartment.component';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        NgxPaginationModule
     ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

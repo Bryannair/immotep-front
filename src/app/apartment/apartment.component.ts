@@ -14,6 +14,7 @@ export class ApartmentComponent implements OnInit {
   propertiesFilter;
   selectedFilter;
   activatedRoute;
+  p = 1;
 
   constructor(private propertiesService: PropertiesService, activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;

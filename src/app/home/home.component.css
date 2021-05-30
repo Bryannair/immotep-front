@@ -1,7 +1,35 @@
-.arrow-more{
+.arrow-more {
   transition: .3s ease-in-out;
 }
 
-.arrow-more:hover{
+.arrow-more:hover {
   margin-left: 5px;
+}
+
+.top-left {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  .top-left {
+    top: 25%;
+    left: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro-title {
+    font-size: 1.5rem;
+  }
+}
+
+.intro-title{
+  text-align: center;
+}
+
+.parallax{
+  position: relative;
 }

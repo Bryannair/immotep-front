@@ -34,7 +34,7 @@ a:hover {
   text-decoration: none;
 }
 
-.title-a:hover{
+.title-a:hover {
   color: #2eca6a !important;
 }
 
@@ -605,12 +605,12 @@ a:hover {
   color: #ffffff;
 }
 
-.arrow-hover{
-text-decoration: none;
+.arrow-hover {
+  text-decoration: none;
   transition: .3s ease-in-out;
 }
 
-.arrow-hover:hover{
+.arrow-hover:hover {
   color: #2eca6a !important;
   margin-right: 5px;
 }
@@ -627,8 +627,9 @@ text-decoration: none;
   backface-visibility: hidden;
   box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
 }
-.navbar-brand{
-  font-size: 2rem!important;
+
+.navbar-brand {
+  font-size: 2rem !important;
 }
 
 .navbar-default .nav-search {
@@ -1125,12 +1126,12 @@ text-decoration: none;
 
 /*------/ Intro Single /------*/
 .intro-single {
-  padding: 12rem 0 3rem;
+  padding: 5rem 0 3rem;
 }
 
 @media (max-width: 767px) {
   .intro-single {
-    padding-top: 9rem;
+    padding-top: 5rem;
   }
 }
 
@@ -1284,6 +1285,7 @@ text-decoration: none;
   .card-box-a .card-overlay-a-content {
     bottom: 65px;
   }
+
   .card-box-a .card-body-a {
     padding-bottom: 1rem;
   }
@@ -2178,4 +2180,10 @@ footer .copyright-footer {
 
 footer .credits {
   font-size: 14px;
+}
+
+/* ngx pagination */
+
+.ngx-pagination .current {
+  background-color: #2eca6a!important;
 }

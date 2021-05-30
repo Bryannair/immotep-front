@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {PropertyStatus, PropertyType} from '../interfaces/property';
 import {map} from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-house',
   templateUrl: './house.component.html',
@@ -14,6 +15,9 @@ export class HouseComponent implements OnInit {
   propertiesFilter;
   selectedFilter;
   activatedRoute;
+  p = 1;
+  private pageLimitAndIndex: any;
+  private paginationLoader: boolean;
 
   constructor(private propertiesService: PropertiesService, activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;

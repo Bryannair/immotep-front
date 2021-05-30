@@ -11,8 +11,9 @@ import {mergeMap} from 'rxjs/operators';
 export class AgentsComponent implements OnInit {
   agents;
   activatedRoute;
+  p = 1;
 
-  constructor(private agentsService: AgentsService, activatedRoute: ActivatedRoute ) {
+  constructor(private agentsService: AgentsService, activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;
   }
 
