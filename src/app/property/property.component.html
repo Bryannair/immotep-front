@@ -1,95 +1,102 @@
 <!-- ======= Intro Single ======= -->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single">Notre sélections de biens </h1>
-            <span class="color-text-a">pour vous</span>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a routerLink="{{ '/home' }}">Accueil</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Notre sélections de biens
-              </li>
-            </ol>
-          </nav>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Notre sélections de biens </h1>
+          <span class="color-text-a">pour vous</span>
         </div>
       </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="{{ '/home' }}">Accueil</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Notre sélections de biens
+            </li>
+          </ol>
+        </nav>
+      </div>
     </div>
-  </section><!-- End Intro Single-->
+  </div>
+</section><!-- End Intro Single-->
 
-  <!-- ======= Property Grid ======= -->
-  <section class="property-grid grid">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="grid-option">
-            <form>
-              <select class="custom-select">
-                <option selected>Tout</option>
-                <option value="1">New to Old</option>
-                <option value="2">For Rent</option>
-                <option value="3">For Sale</option>
-              </select>
-            </form>
-          </div>
+<!-- ======= Property Grid ======= -->
+<section class="property-grid grid">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 d-flex justify-content-end align-content-start">
+        <div class="grid-option">
+          <form>
+            <select name="filter" [(ngModel)]="selectedFilter" (change)="onFilter()"
+                    class="form-select form-select-sm custom-select">
+              <option value="1">De 0€ à 100 000€</option>
+              <option value="2">De 100 000€ à 200 000€</option>
+              <option value="3">Plus de 200 000€</option>
+              <option value="4">À louer</option>
+              <option value="5">À vendre</option>
+              <option value="6">Maison</option>
+              <option value="7">Appartement</option>
+            </select>
+          </form>
         </div>
-        <div class="col-md-4" *ngFor="let property of properties | paginate: { itemsPerPage: 2, currentPage: p }">
-          <a [routerLink]="['/single-property', property.id]">
-            <div class="card-box-a card-shadow">
-              <div class="img-box-a">
-                <img src="../assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+      </div>
+      <div class="col-md-4" *ngFor="let property of propertiesFilter | paginate: { itemsPerPage: 2, currentPage: p }">
+        <a [routerLink]="['/single-property', property.id]">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="../assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="d-flex justify-content-end align-content-start m-3">
+                <p [ngClass]="{'sold' : isSold(property), 'rent':  isRent(property)}" class="text-white status">{{ property.status }}</p>
               </div>
-              <div class="card-overlay">
-                <div class="card-overlay-a-content">
-                  <div class="card-header-a">
-                    <h2 class="card-title-a">
-                      <a href="#">{{ property.title }}</a>
-                    </h2>
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">{{ property.title }}</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">{{ property.price | currency:'EUR' }}</span>
                   </div>
-                  <div class="card-body-a">
-                    <div class="price-box d-flex">
-                      <span class="price-a">{{ property.price | currency:'EUR' }}</span>
-                    </div>
-                  </div>
-                  <div class="card-footer-a">
-                    <ul class="card-info d-flex justify-content-around">
-                      <li>
-                        <h4 class="card-info-title">Supérficie</h4>
-                        <span>{{ property.area }}m
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Supérficie</h4>
+                      <span>{{ property.area }}m
                           <sup>2</sup>
                         </span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Chambre</h4>
-                        <span>{{ property.rooms }}</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Baths</h4>
-                        <span>4</span>
-                      </li>
-                      <li>
-                        <h4 class="card-info-title">Garages</h4>
-                        <span>1</span>
-                      </li>
-                    </ul>
-                  </div>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Chambre</h4>
+                      <span>{{ property.rooms }}</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Baths</h4>
+                      <span>4</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Garages</h4>
+                      <span>1</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
+          </div>
+        </a>
       </div>
     </div>
-  </section><!-- End Property Grid Single-->
+    <div class="row">
+      <div class="col-sm-12 mt-5 d-flex justify-content-center align-content-start">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section><!-- End Property Grid Single-->

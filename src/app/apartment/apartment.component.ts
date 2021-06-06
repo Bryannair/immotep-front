@@ -45,31 +45,34 @@ export class ApartmentComponent implements OnInit {
     switch (this.selectedFilter) {
       case '1' : {
         this.propertiesFilter = this.properties.filter(property => property.price >= 0 && property.price <= 100000);
-        console.log(this.propertiesFilter);
         break;
       }
       case '2' : {
         this.propertiesFilter = this.properties.filter(property => property.price > 100000 && property.price <= 200000);
-        console.log(this.propertiesFilter);
         break;
       }
       case '3' : {
         this.propertiesFilter = this.properties.filter(property => property.price > 200000);
-        console.log(this.propertiesFilter);
         break;
       }
       case '4' : {
         this.propertiesFilter = this.properties.filter(property => property.status === PropertyStatus.LOUER);
-        console.log(this.propertiesFilter);
         break;
       }
       case '5' : {
         this.propertiesFilter = this.properties.filter(property => property.status === PropertyStatus.VENDRE);
-        console.log(this.propertiesFilter);
         break;
       }
       default:
     }
+  }
+  // tslint:disable-next-line:typedef
+  isSold(property) {
+    return property.status === PropertyStatus.VENDRE;
+  }
+  // tslint:disable-next-line:typedef
+  isRent(property){
+    return property.status === PropertyStatus.LOUER;
   }
 
 }

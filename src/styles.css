@@ -2185,5 +2185,20 @@ footer .credits {
 /* ngx pagination */
 
 .ngx-pagination .current {
-  background-color: #2eca6a!important;
+  background-color: #2eca6a !important;
+}
+
+/* status */
+
+.status {
+  padding: 0.5rem;
+
+}
+
+.rent {
+  background-color: #F4996F;
+}
+
+.sold {
+  background-color: #3DBAA6;
 }

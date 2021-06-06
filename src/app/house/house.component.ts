@@ -16,8 +16,6 @@ export class HouseComponent implements OnInit {
   selectedFilter;
   activatedRoute;
   p = 1;
-  private pageLimitAndIndex: any;
-  private paginationLoader: boolean;
 
   constructor(private propertiesService: PropertiesService, activatedRoute: ActivatedRoute) {
     this.activatedRoute = activatedRoute;
@@ -74,5 +72,13 @@ export class HouseComponent implements OnInit {
       }
       default:
     }
+  }
+  // tslint:disable-next-line:typedef
+  isSold(property) {
+    return property.status === PropertyStatus.VENDRE;
+  }
+  // tslint:disable-next-line:typedef
+  isRent(property){
+    return property.status === PropertyStatus.LOUER;
   }
 }

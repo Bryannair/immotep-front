@@ -1,3 +1,5 @@
+import {Agent} from './agent';
+
 export interface Property {
   id?: number;
   title: string;
@@ -8,15 +10,9 @@ export interface Property {
   status: string;
   area: string;
   rooms: string;
-  properties: string;
+  agents: Agent[];
 }
 
-export interface Agent {
-  id?: number;
-  name: string;
-  email: string;
-  portable: string;
-}
 
 export enum PropertyType {
   MAISON = 'Maison',
